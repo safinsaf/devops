@@ -7,7 +7,8 @@ app = FastAPI()
 
 
 @app.get("/")
-async def root():
+async def time():
+    """Shows Moscow local datetime"""
     utc_moment = datetime.utcnow()
     utc_moment = utc_moment.replace(tzinfo=pytz.utc)
     formatting = "%Y-%m-%d %H:%M:%S"
