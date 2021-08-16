@@ -1,0 +1,10 @@
+uvicorn
+fastapi
+passlib
+python-jose
+python-multipart
+pytz
+black
+isort
+pyupgrade
+flake8-markdown
