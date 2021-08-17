@@ -34,4 +34,5 @@
 python -m black filename
 isort filename
 pyupgrade filename
+flake8-markdown filename
 ```
