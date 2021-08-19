@@ -2,7 +2,6 @@ uvicorn
 fastapi
 passlib
 python-jose
-python-multipart
 pytz
 black
 isort
