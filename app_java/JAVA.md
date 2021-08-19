@@ -17,6 +17,6 @@ This plugin provides both real-time and on-demand scanning of Java files with Ch
 ## How to run
 ```bash
 ./mvnw install
-java -jar target/compiled_jar_file.jar # jar file is created in target
-																			 # directory by previous command
+java -jar ./target/demo2-0.0.1-SNAPSHOT.jar 
+# jar file is created in target directory by previous command and can have different name
 ```

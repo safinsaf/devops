@@ -16,7 +16,7 @@ It takes **utc time**, converts it to **Moscow time** and shows in browser
 ```bash
 ./mvnw install
 java -jar ./target/demo2-0.0.1-SNAPSHOT.jar 
-# jar file is created in target directory by previous command
+# jar file is created in target directory by previous command and can have different name
 ```
 
 2. Open [link](http://127.0.0.1:8081/)
