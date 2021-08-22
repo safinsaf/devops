@@ -29,3 +29,10 @@ docker run -p 8081:8081 app_java
 ```
 
 2. Then check the  [link](http://127.0.0.1:8081/)
+
+## Docker hub
+
+Also you can run it using
+```bash
+docker run --publish 8081:8081 safinsaf/devops_app_java
+```

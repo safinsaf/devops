@@ -24,7 +24,15 @@ python app_python\main.py
 1. You can launch the app by running
 
 ```bash
-docker run --publish 8080:8080 safinsaf/devops_app_python
+docker build -t app_python .
+docker run -p 8080:8080 app_python
 ```
 
 2. Then check the  [link](http://127.0.0.1:8080/)
+
+## Docker hub
+
+Also you can run it using
+```bash
+docker run --publish 8080:8080 safinsaf/devops_app_python
+```
