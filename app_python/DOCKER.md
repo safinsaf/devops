@@ -27,6 +27,9 @@ When rebuilding the image, docker will reuse layers that did not change.
 
 For example installing requirements before copying all other files demonstrates this practice.
 
+## 7. Avoid unnecessary privileges
+The application only has access to the resources and information necessary to perform its purpose.
+
 ## How to run
 Clone this git repository.
 cd to app_python directory
