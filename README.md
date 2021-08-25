@@ -36,3 +36,16 @@ Also you can run it using
 ```bash
 docker run --publish 8080:8080 safinsaf/devops_app_python
 ```
+
+## Unit tests
+
+1. To run unit tests install following packages:
+```
+pytest==6.2.4
+requests==2.26.0
+```
+
+2. Run the following command in **app_python** directory
+```
+pytest
+```
