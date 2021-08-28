@@ -26,7 +26,8 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./
-          file: ./app_python/Dockerfile
+          path: app_python
+          #file: ./app_python/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/devops_app_python:latest
 
