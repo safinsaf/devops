@@ -27,6 +27,5 @@ It is always better if your inner loop (Code/Test/Run/Debug/Commit) and outer lo
 ## Use Docker Hub access token
 When you are setting up your CI make sure you are using a Docker Hub access token rather than your password, you can create new access tokens from your security page on Docker Hub. 
 
-## Build differen stages for deployment and testing
-
+## Build different stages for deployment and testing
 The production version of image should not have dependencies required for testing.

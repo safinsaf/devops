@@ -2,10 +2,6 @@ name: CI to Docker Hub
 on:
   push:
     branches: [ main, workflow ]
-env:
-  username: ${{ secrets.DOCKER_HUB_USERNAME }}
-  password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-  app: devops_app_python
 
 jobs:
   lint_test:
@@ -41,6 +37,11 @@ jobs:
   build:
     needs: [lint_test]
     runs-on: ubuntu-latest
+
+    env:
+      username: ${{ secrets.DOCKER_HUB_USERNAME }}
+      password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      pythonapp: devops_app_python
 
     steps:
     
