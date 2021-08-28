@@ -36,3 +36,41 @@ isort filename
 pyupgrade filename
 flake8-markdown filename
 ```
+
+
+# Best practices in testing
+
+## Unit tests
+* **Validation**: Unit testing validates that each piece of your software not only works properly today, but continues to work in the future, providing a solid foundation for future development.
+* **Defects at early stages**: Unit testing identifies defects at early stages of the production process, which reduces the costs of fixing them in later stages of the development cycle.
+* **Safer to refactor**: Unit-tested code is generally safer to refactor, since tests can be re-run quickly to validate that behavior has not changed.
+* **Different perspective**: Writing unit tests forces developers to consider how well the production code is designed in order to make it suitable for unit testing, and makes developers look at their code from a different perspective, encouraging them to consider corner cases and error conditions in their implementation.
+
+### 1. Unit Tests Should Be Trustworthy
+* **Test fall == Code is broken**: Tests should fall if anf only if code is broken, so we can trust test when verifying code
+
+### 2. Unit Tests Should Be Maintainable and Readable
+* **Organise tests**: Organise and name your test so other developers understand them.
+* **Easy to understand**: It must be easy to read, understand and update the test
+
+### 3. Unit Tests Should Verify a Single-Use Case
+* **One purpose**: Unit test should validate one thing and only one thing
+* **Easy to maintain**: Tests that follow this practice are simpler and more understandable. In contrary, tests that test several things at once will become more and more complex with time
+* **Easy to debug**: If the test that checks only one thing fails, you know exactly what is wrong
+
+### 4. Unit Tests Should Be Isolated
+* **Runnable without affecting other tests**: Tests should not affect each other
+* **No dependencies on state**: Dependencies on environmental factors or external state make tests unstable and violate the first rule **Trustworthy**.
+
+### 5. Unit Tests Should Be Automated
+* **Continuous Integration or Delivery**: All changes to the production code should be tested
+* **Logging**: Results of tests should be saved to address them when bugs occur
+
+### 6. Code coverage should be high
+* **More tests** Add more tests for more code paths
+* **More use-cases** More use-cases of the method under test.
+
+
+## My tests
+* **Simple application**: My test checks that application is running and processing requests.
+
