@@ -8,7 +8,7 @@ env:
   app: devops_app_python
 
 jobs:
-  test:
+  lint_test:
 
     runs-on: ubuntu-latest
     strategy:
@@ -29,12 +29,16 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r app_python/requirements_dev.txt
 
+      - name: Format Checking
+        run: |
+          python -m black --check ./
+
       - name: Test with pytest
         run: pytest
 
 
   build:
-    needs: [test]
+    needs: [lint_test]
     runs-on: ubuntu-latest
 
     steps:
