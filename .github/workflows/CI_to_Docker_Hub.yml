@@ -32,7 +32,7 @@ jobs:
       - name: Format Checking
         run: |
           isort --diff --check-only ./app_python/
-          python -m black --check ./app_python/
+          python -m black --check --diff ./app_python/
 
       - name: Test with pytest
         run: pytest
