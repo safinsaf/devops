@@ -3,17 +3,21 @@ pipeline {
         docker { image 'python:3.8' }
     }
 
+    environment {
+        PATH = "/var/jenkins_home/workspace/devops_workflow/.local/bin:${env.PATH}"
+    }
+
     stages {
         stage('Build') {
             steps {
                 withEnv(["HOME=${env.WORKSPACE}"]) {
                     echo 'Building..'
                     sh '''
-                        export PATH=/var/jenkins_home/workspace/devops_workflow/.local/bin:${env.PATH}
                         cd app_python
                         pip install -r requirements_dev.txt
                     '''
                     echo "${env.PATH}"
+                    echo "${PATH}"
                 }
             }
         }
