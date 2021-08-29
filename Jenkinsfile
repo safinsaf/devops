@@ -18,8 +18,8 @@ pipeline {
         stage('Lint') {
             steps {
                 dir('app_python') {
+                    sh "python -m black --check --diff ./"
                    sh "isort --diff --check-only ./"
-                   sh "python -m black --check --diff ./"
                }
             }
         }
