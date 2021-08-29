@@ -8,6 +8,8 @@ pipeline {
             steps {
                 withEnv(["HOME=${env.WORKSPACE}"]) {
                     echo 'Building..'
+                    sh "PATH=/var/jenkins_home/workspace/devops_workflow/.local/bin:${env.PATH}"
+                    echo "env.PATH"
                     sh '''
                         cd app_python
                         pip install -r requirements_dev.txt
@@ -21,7 +23,7 @@ pipeline {
                      dir('app_python') {
                          sh "python -m black --check --diff ./"
                          echo "${env.HOME}"
-                         sh "PATH=/var/jenkins_home/workspace/devops_workflow/.local/bin:${env.PATH}"
+
                          sh "isort --diff --check-only ./"
                      }
                  }
