@@ -20,7 +20,7 @@ pipeline {
                  withEnv(["HOME=${env.WORKSPACE}"]) {
                      dir('app_python') {
                          sh "python -m black --check --diff ./"
-                         echo ${env.WORKSPACE}
+                         echo "${env.HOME}
                          // sh '''
                          // #   env.PATH="${env.NODEJS_HOME};${env.PATH}"
                          // '''
