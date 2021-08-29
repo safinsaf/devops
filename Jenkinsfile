@@ -21,9 +21,9 @@ pipeline {
                      dir('app_python') {
                          sh "python -m black --check --diff ./"
                          echo "${env.HOME}"
-                         // sh '''
-                         // #   env.PATH="${env.NODEJS_HOME};${env.PATH}"
-                         // '''
+                         sh '''
+                             env.PATH="${env.HOME}/.local/bin';${env.PATH}"
+                         '''
                          sh "isort --diff --check-only ./"
                      }
                  }
