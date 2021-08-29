@@ -8,7 +8,7 @@ pipeline {
             steps {
                 withEnv(["HOME=${env.WORKSPACE}"]) {
                     echo 'Building..'
-                    sh "PATH=/var/jenkins_home/workspace/devops_workflow/.local/bin:${env.PATH}"
+                    sh "export PATH=/var/jenkins_home/workspace/devops_workflow/.local/bin:${env.PATH}"
                     echo "${env.PATH}"
                     sh '''
                         cd app_python
