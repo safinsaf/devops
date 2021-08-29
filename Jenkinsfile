@@ -9,7 +9,7 @@ pipeline {
                 withEnv(["HOME=${env.WORKSPACE}"]) {
                     echo 'Building..'
                     sh "PATH=/var/jenkins_home/workspace/devops_workflow/.local/bin:${env.PATH}"
-                    echo "env.PATH"
+                    echo "${env.PATH}"
                     sh '''
                         cd app_python
                         pip install -r requirements_dev.txt
