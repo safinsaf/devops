@@ -17,10 +17,12 @@ pipeline {
         }
         stage('Lint') {
             steps {
-                dir('app_python') {
-                    sh "python -m black --check --diff ./"
-                   sh "isort --diff --check-only ./"
-               }
+                withEnv(["HOME=${env.WORKSPACE}"]) {
+                    dir('app_python') {
+                        sh "python -m black --check --diff ./"
+                       sh "isort --diff --check-only ./"
+                    }
+                }
             }
         }
         stage('Deploy') {
