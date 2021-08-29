@@ -21,9 +21,9 @@ pipeline {
                      dir('app_python') {
                          sh "python -m black --check --diff ./"
                          echo "${env.HOME}"
-                         sh '''
+                         sh """
                              env.PATH="/var/jenkins_home/workspace/devops_workflow/.local/bin;${env.PATH}"
-                         '''
+                         """
                          sh "isort --diff --check-only ./"
                      }
                  }
