@@ -16,15 +16,19 @@ pipeline {
             }
         }
         stage('Lint') {
-            steps {
-                withEnv(["HOME=${env.WORKSPACE}"]) {
-                    dir('app_python') {
-                        sh "python -m black --check --diff ./"
-                       sh "isort --diff --check-only ./"
-                    }
-                }
-            }
-        }
+             steps {
+                 withEnv(["HOME=${env.WORKSPACE}"]) {
+                     dir('app_python') {
+                         sh "python -m black --check --diff ./"
+                         echo ${env.WORKSPACE}
+                         // sh '''
+                         // #   env.PATH="${env.NODEJS_HOME};${env.PATH}"
+                         // '''
+                         sh "isort --diff --check-only ./"
+                     }
+                 }
+             }
+         }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
