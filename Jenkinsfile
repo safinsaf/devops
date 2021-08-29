@@ -15,9 +15,12 @@ pipeline {
                 }
             }
         }
-        stage('Test') {
+        stage('Lint') {
             steps {
-                echo 'Testing..'
+                dir('app_python') {
+                   sh "isort --diff --check-only ./"
+                   sh "python -m black --check --diff ./"
+               }
             }
         }
         stage('Deploy') {
