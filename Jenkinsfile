@@ -5,14 +5,9 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+                sh "python --help"
             }
         }
-        stage('Build2') {
-            steps {
-                sh 'make'
-                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
-            }
-                }
         stage('Test') {
             steps {
                 echo 'Testing..'
