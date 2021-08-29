@@ -6,12 +6,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
-                sh '''
-                    cd app_python
-                    pip install --user -r requirements_dev.txt
-                '''
-
+                withEnv(["HOME=${env.WORKSPACE}"]) {
+                    echo 'Building..'
+                    sh '''
+                        cd app_python
+                        pip install -r requirements_dev.txt
+                    '''
+                }
             }
         }
         stage('Test') {
