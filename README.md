@@ -63,3 +63,4 @@ After all tests pass, image is deployed to Docker Hub
 https://www.datree.io/resources/github-actions-best-practices
 https://docs.docker.com/ci-cd/github-actions/
 https://www.docker.com/blog/best-practices-for-using-docker-hub-for-ci-cd/
+https://www.lambdatest.com/blog/jenkins-best-practices/
