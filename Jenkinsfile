@@ -9,7 +9,7 @@ pipeline {
                 echo 'Building..'
                 sh '''
                     cd app_python
-                    pip install -r requirements_dev.txt
+                    pip install --user -r requirements_dev.txt
                 '''
 
             }
