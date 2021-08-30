@@ -14,7 +14,6 @@ pipeline {
                     cd app_python
                     pip install -r requirements_dev.txt
                 '''
-
             }
         }
         stage('Lint') {
@@ -24,10 +23,18 @@ pipeline {
                      sh "python -m black --check --diff ./"
                  }
              }
-         }
+        }
+        stage('Test') {
+             steps {
+                 dir('app_python') {
+                     sh "pytest"
+                 }
+             }
+        }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+
             }
         }
     }
