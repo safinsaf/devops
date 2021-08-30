@@ -14,6 +14,8 @@ pipeline {
                     cd app_python
                     pip install -r requirements_dev.txt
                 '''
+                sh  'apt-get update && apt-get install -y docker.io'
+
             }
         }
         stage('Lint') {
