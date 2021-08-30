@@ -1,7 +1,9 @@
 pipeline {
     agent {
-        docker { image 'python:3.8' }
-        args '-u root'
+        docker {
+            image 'python:3.8'
+            args '-u root'
+        }
     }
 
     stages {
