@@ -20,7 +20,7 @@ pipeline {
         stage('Lint') {
              steps {
                  dir('app_python') {
-                     sh "isort --diff --check-only ./"
+                     // sh "isort --diff --check-only ./"
                      sh "python -m black --check --diff ./"
                  }
              }
