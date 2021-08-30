@@ -7,7 +7,7 @@ pipeline {
     }
 
     stages {
-        stage('Build') {
+        stage('Build infrastructure') {
             steps {
                 echo 'Building..'
                 sh '''
@@ -18,21 +18,24 @@ pipeline {
 
             }
         }
-        stage('Lint') {
-             steps {
-                 dir('app_python') {
-                     // sh "isort --diff --check-only ./"
-                     sh "python -m black --check --diff ./"
+
+        parallel(
+            'Lint': {
+                 steps {
+                     dir('app_python') {
+                         // sh "isort --diff --check-only ./"
+                         sh "python -m black --check --diff ./"
+                     }
                  }
-             }
-        }
-        stage('Test') {
-             steps {
-                 dir('app_python') {
-                     sh "pytest"
+            }
+            'Test': {
+                 steps {
+                     dir('app_python') {
+                         sh "pytest"
+                     }
                  }
-             }
-        }
+            }
+        )
         stage('build') {
             steps {
                 dir('app_python') {
