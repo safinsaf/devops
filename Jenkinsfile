@@ -31,10 +31,16 @@ pipeline {
                  }
              }
         }
-        stage('Deploy') {
+        stage('build') {
             steps {
-                echo 'Deploying....'
-
+                dir('app_python') {
+                    script {
+                        def image = docker.build('safinsaf/devops_app_python:latest', '-f ./Dockerfile .')
+                        docker.withRegistry('', 'docker-hub-token') {
+                            image.push()
+                        }
+                    }
+                }
             }
         }
     }
