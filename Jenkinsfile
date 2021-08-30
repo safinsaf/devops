@@ -4,7 +4,7 @@ pipeline {
     }
 
     environment {
-        PATH = "/var/jenkins_home/workspace/devops_workflow/.local/bin:${env.PATH}"
+        PATH = "/var/jenkins_home/workspace/devops_workflow/.local/bin:$PATH"
     }
 
     stages {
@@ -12,6 +12,7 @@ pipeline {
             steps {
                 withEnv(["HOME=${env.WORKSPACE}"]) {
                     echo 'Building..'
+
                     sh '''
                         cd app_python
                         pip install -r requirements_dev.txt
