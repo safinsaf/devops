@@ -20,23 +20,21 @@ pipeline {
         }
 
         stage('Lint and test'){
-            parallel(
-                'Lint': {
-                     steps {
+            steps {
+                parallel(
+                    'Lint': {
                          dir('app_python') {
                              // sh "isort --diff --check-only ./"
                              sh "python -m black --check --diff ./"
                          }
-                     }
-                },
-                'Test': {
-                     steps {
+                    },
+                    'Test': {
                          dir('app_python') {
                              sh "pytest"
                          }
-                     }
-                }
-            )
+                    }
+                )
+            }
         }
         stage('build') {
             steps {
