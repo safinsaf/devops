@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'python:3.8'
-            args '-u root'
+            args '-u root -v $HOME/.cache:/root/.cache -v /var/run/docker.sock:/var/run/docker.sock'
         }
     }
 
