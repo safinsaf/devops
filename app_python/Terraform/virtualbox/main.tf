@@ -12,7 +12,7 @@ provider "vagrant" {
 }
 
 resource "vagrant_vm" "my_vagrant_vm" {
-  vagrantfile_dir = "../../Vagrant"
+  vagrantfile_dir = "./Vagrant"
   env = {
     KEY = "value",
   }
