@@ -65,3 +65,5 @@ https://docs.docker.com/ci-cd/github-actions/
 https://www.docker.com/blog/best-practices-for-using-docker-hub-for-ci-cd/
 https://www.lambdatest.com/blog/jenkins-best-practices/
 https://gist.github.com/adelmofilho/5a30a87eaf1cd4a03052f37b516d6714
+https://registry.terraform.io/providers/bmatcuk/vagrant/latest/docs
+https://learn.hashicorp.com/tutorials/terraform/aws-build
