@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: localhost
   # become: true
   # vars_files:
   #   - vars/default.yml
@@ -44,4 +44,4 @@
   #     with_sequence: count={{ create_containers }}
 
   roles:
-    - ansible-role-docker
+    - ../roles/ansible-role-docker
