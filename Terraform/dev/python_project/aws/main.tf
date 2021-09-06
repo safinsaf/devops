@@ -65,8 +65,8 @@ resource "aws_security_group" "main" {
      from_port   = 8080
      to_port     = 8080
      protocol    = "tcp"
-     self             = false
-     cidr_blocks = ["10.10.0.0/16", ]
+     self        = false
+     cidr_blocks = ["0.0.0.0/0", ]
    }
   ]
 }
