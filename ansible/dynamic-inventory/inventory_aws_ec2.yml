@@ -3,7 +3,8 @@ regions:
   - "us-west-2"
 
 filters:
-  tag:ControlledBy: ansible
+  tag: 
+    ControlledBy: ansible
   instance-state-name : running
 
 compose:
