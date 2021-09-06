@@ -56,7 +56,14 @@ resource "aws_security_group" "main" {
      security_groups  = []
      self             = false
      to_port          = 22
-  }
+  },
+   {
+     from_port   = 8080
+     to_port     = 8080
+     protocol    = "tcp"
+     description = "User-service ports"
+     cidr_blocks = "10.10.0.0/16"
+   },
   ]
 }
 
