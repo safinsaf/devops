@@ -3,7 +3,3 @@ fastapi==0.68.0
 passlib==1.7.4
 python-jose==3.3.0
 pytz==2021.1
-black==21.7b0
-isort==5.9.3
-pyupgrade==2.10.1
-flake8-markdown==0.2.0
