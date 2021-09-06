@@ -16,7 +16,7 @@
 - name: Install docker libraries
   pip:
     name:
-      - docker==19.03.12
+      - docker== 5.0.2
       - docker-compose==1.29.2
     state: present
 
