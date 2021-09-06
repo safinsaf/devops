@@ -28,3 +28,5 @@ ansible-playbook -i ../dynamic-inventory/inventory_aws_ec2.yml prepare_docker.ym
 ```
 ansible-playbook -i ../dynamic-inventory/inventory_aws_ec2.yml install_app.yml --key-file "path_to_private_key_file"
 ```
+
+## 4. Check ip_of_your_VM:8080
