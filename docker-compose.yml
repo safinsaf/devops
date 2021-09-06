@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+
+  app_python:
+    build: app_python/
+    command: bash -c "
+      python main.py"
+
+    environment:
+      - host_ip=127.0.0.1
+
+    ports:
+      - "8080:8080"
+
+volumes:
+  db-data:
