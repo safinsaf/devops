@@ -68,3 +68,4 @@ https://gist.github.com/adelmofilho/5a30a87eaf1cd4a03052f37b516d6714
 https://registry.terraform.io/providers/bmatcuk/vagrant/latest/docs
 https://learn.hashicorp.com/tutorials/terraform/aws-buildye
 https://github.com/bmatcuk/terraform-provider-vagrant
+https://github.com/geerlingguy/ansible-role-pip/blob/master/tasks/main.yml

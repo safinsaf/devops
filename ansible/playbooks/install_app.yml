@@ -1,0 +1,6 @@
+---
+- hosts: devops_aws
+  remote_user: ubuntu
+  become: true
+  roles:
+    - ../roles/install_app_role
