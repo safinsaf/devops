@@ -1,10 +1,10 @@
 plugin: aws_ec2
 regions:
   - "us-west-2"
-keyed_groups:
-  - prefix: tag
-    key: tags
+
 filters:
+  tag:ControlledBy: ansible
   instance-state-name : running
+
 compose:
   ansible_host: public_ip_address
