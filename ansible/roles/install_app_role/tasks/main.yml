@@ -27,8 +27,8 @@
 
 - name: Copy docker-compose
   copy:
-    src: docker-compose.yaml
-    dest: /app_python/docker-compose.yaml
+    src: docker-compose.yml
+    dest: /app_python/docker-compose.yml
 
 - name: deploy Docker Compose stack
   docker_compose:
