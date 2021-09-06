@@ -1,6 +1,7 @@
 ---
-- hosts: localhost
-  # become: true
+- hosts: devops_aws
+  remote_user: ubuntu
+  become: true
   # vars_files:
   #   - vars/default.yml
 
