@@ -22,6 +22,10 @@ resource "aws_instance" "app_server" {
   key_name= "aws_key"
   vpc_security_group_ids = [aws_security_group.main.id]
 
+  tags = {
+    Name = "VM1"
+  }
+
   connection {
     type        = "ssh"
     host        = self.public_ip

@@ -2,8 +2,8 @@ plugin: aws_ec2
 regions:
   - "us-west-2"
 keyed_groups:
-  - key: tags.Name
-  - key: tags.task
+  - prefix: tag
+    key: tags
 filters:
   instance-state-name : running
 compose:
