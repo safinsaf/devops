@@ -58,10 +58,14 @@ resource "aws_security_group" "main" {
      to_port          = 22
   },
    {
+     description = "User-service port"
+     ipv6_cidr_blocks = []
+     prefix_list_ids  = []
+     security_groups  = []
      from_port   = 8080
      to_port     = 8080
      protocol    = "tcp"
-     description = "User-service ports"
+     self             = false
      cidr_blocks = "10.10.0.0/16"
    }
   ]
