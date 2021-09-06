@@ -4,34 +4,34 @@
     name: "{{ pip_package }}"
     state: present
 
-  - name: Ensure pip_install_packages are installed.
-    pip:
-      name: "{{ item.name | default(item) }}"
-      version: "{{ item.version | default(omit) }}"
-      virtualenv: "{{ item.virtualenv | default(omit) }}"
-      state: "{{ item.state | default(omit) }}"
-      executable: "{{ pip_executable }}"
-    loop: "{{ pip_install_packages }}"
+- name: Ensure pip_install_packages are installed.
+  pip:
+    name: "{{ item.name | default(item) }}"
+    version: "{{ item.version | default(omit) }}"
+    virtualenv: "{{ item.virtualenv | default(omit) }}"
+    state: "{{ item.state | default(omit) }}"
+    executable: "{{ pip_executable }}"
+  loop: "{{ pip_install_packages }}"
 
-  - name: Install docker libraries
-    pip:
-      name:
-        - docker==20.10.7
-        - docker-compose==1.29.2
-      state: present
+- name: Install docker libraries
+  pip:
+    name:
+      - docker==20.10.7
+      - docker-compose==1.29.2
+    state: present
 
-  - name: Create directory for app
-    file:
-      path: /app_python/
-      state: directory
+- name: Create directory for app
+  file:
+    path: /app_python/
+    state: directory
 
-  - name: Copy docker-compose
-    copy:
-      src: ../../../../docker-compose.yaml
-      dest: /python_app/docker-compose.yaml
+- name: Copy docker-compose
+  copy:
+    src: ../../../../docker-compose.yaml
+    dest: /app_python/docker-compose.yaml
 
-  - name: deploy Docker Compose stack
-    docker_compose:
-      project_src: /python_app
-      files:
-        - docker-compose.yml
+- name: deploy Docker Compose stack
+  docker_compose:
+    project_src: /app_python
+    files:
+      - docker-compose.yml
