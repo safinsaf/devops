@@ -24,7 +24,6 @@ resource "aws_instance" "app_server" {
 
   tags = {
     Name = "VM1"
-    ControlledBy = "ansible"
   }
 
   connection {
