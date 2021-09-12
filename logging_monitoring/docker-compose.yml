@@ -31,6 +31,17 @@ services:
       - /var/run/docker.sock:/tmp/docker.sock:ro
     <<: *defaults
 
+  app_java:
+    image: safinsaf/devops_app_java:${TAG:-latest}
+    container_name: app_java
+    ports:
+      - "8081:8081"
+    expose:
+      - 8081
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    <<: *defaults
+
   grafana:
     build:
       context: ${PWD}/grafana
