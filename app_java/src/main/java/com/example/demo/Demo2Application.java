@@ -18,8 +18,6 @@ import java.time.format.DateTimeFormatter;
 @RestController
 public class Demo2Application {
 
-    Logger logger = LoggerFactory.getLogger(Demo2Application.class);
-
     public static void main(String[] args) {
         SpringApplication.run(Demo2Application.class, args);
     }
