@@ -32,7 +32,7 @@ services:
     <<: *defaults
 
   app_java:
-    image: app_java
+    image: safinsaf/devops_app_java:${TAG:-latest}
     container_name: app_java
     ports:
       - "8081:8081"
