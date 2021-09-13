@@ -2,7 +2,7 @@ from datetime import datetime
 
 import pytz
 from fastapi import FastAPI
-from prometheus_fastapi_instrumentator import Instrumentator, metrics
+from prometheus_fastapi_instrumentator import Instrumentator
 
 app = FastAPI()
 
