@@ -32,3 +32,7 @@ Accessing all container logs
 ![img.png](screenshots/img4.png)
 
 ![img.png](screenshots/img5.png)
+
+## Bonus task
+
+![img.png](screenshots/img6.png)
