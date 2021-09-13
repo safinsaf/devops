@@ -10,3 +10,4 @@ flake8-markdown==0.2.0
 pytest==6.2.4
 requests==2.26.0
 boto3==1.18.36
+prometheus_fastapi_instrumentator==5.7.1

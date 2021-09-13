@@ -2,6 +2,7 @@ from datetime import datetime
 
 import pytz
 from fastapi import FastAPI
+from prometheus_fastapi_instrumentator import Instrumentator, metrics
 
 app = FastAPI()
 
@@ -16,3 +17,8 @@ async def time():
     timezone_dt = utc_moment.astimezone(pytz.timezone(timezone))
     dt_str = timezone_dt.strftime(formatting)
     return {"Moscow datetime": dt_str}
+
+instrumentator = Instrumentator()
+instrumentator.instrument(app)
+instrumentator.expose(app, endpoint="/metrics",
+        include_in_schema=False, should_gzip=True)
