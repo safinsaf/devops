@@ -14,6 +14,10 @@
     <name>demo2</name>
     <description>demo2</description>
 
+    <properties>
+        <java.version>16</java.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
