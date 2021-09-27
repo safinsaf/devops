@@ -4,7 +4,7 @@ import pytz
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 from prometheus_fastapi_instrumentator import Instrumentator
-from storage import Storage
+from app_python.storage import Storage
 
 app = FastAPI()
 
