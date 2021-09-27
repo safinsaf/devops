@@ -1,0 +1,8 @@
+version: "3.3"
+services:
+  web:
+    image: safinsaf/devops_app_python:${TAG:-latest}
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./media:/home/app_python/media

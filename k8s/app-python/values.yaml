@@ -80,3 +80,6 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+mountPath: "/etc/config"
+readOnly: true

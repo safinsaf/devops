@@ -12,7 +12,7 @@ USER myuser
 COPY requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY main.py api.py /app/
+COPY main.py api.py storage.py /app/
 EXPOSE 8080
 CMD [ "python", "main.py"]
 HEALTHCHECK --interval=5s --retries=3\
