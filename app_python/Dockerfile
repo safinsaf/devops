@@ -4,16 +4,16 @@ LABEL maintainer="i.safin@innopolis.university"
 
 RUN apt update && apt upgrade && apt install -y curl
 
-WORKDIR /app
+WORKDIR /python_app
 RUN adduser --disabled-password myuser && \
-    chown -R myuser /app
+    chown -R myuser /python_app
 USER myuser
 
-COPY requirements.txt requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+COPY ./requirements.txt /python_app/requirements.txt
+RUN pip install --no-cache-dir -r /python_app/requirements.txt
 
-COPY main.py api.py storage.py /app/
+COPY ./app /python_app/app
 EXPOSE 8080
-CMD [ "python", "main.py"]
+CMD ["python", "-m", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080"]
 HEALTHCHECK --interval=5s --retries=3\
     CMD curl -f http://localhost:8080 || exit 1

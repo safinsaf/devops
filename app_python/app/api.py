@@ -2,9 +2,9 @@ from datetime import datetime
 
 import pytz
 from fastapi import FastAPI
-from fastapi.responses import JSONResponse
+from fastapi.responses import PlainTextResponse
 from prometheus_fastapi_instrumentator import Instrumentator
-from app_python.storage import Storage
+from app.storage import Storage
 
 app = FastAPI()
 
@@ -22,10 +22,10 @@ async def time():
     return {"Moscow datetime": dt_str}
 
 
-@app.get("/visits")
+@app.get("/visits", response_class=PlainTextResponse)
 async def visits():
     data = storage.get_data()
-    return JSONResponse({"storage data": data})
+    return data
 
 storage = Storage("media", "visits.txt")
 instrumentator = Instrumentator()
