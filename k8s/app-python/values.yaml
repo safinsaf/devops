@@ -87,3 +87,5 @@ readOnlyConfig: true
 
 mountPathVisits: "media/"
 storagePerNode: 128M
+
+podManagementPolicy: "Parallel"
