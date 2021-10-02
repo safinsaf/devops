@@ -6,7 +6,7 @@ replicaCount: 3
 
 image:
   repository: safinsaf/devops_app_python
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
 
@@ -37,6 +37,7 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
+  name: app-python
   type: LoadBalancer
   port: 8080
 
@@ -81,5 +82,8 @@ tolerations: []
 
 affinity: {}
 
-mountPath: "/etc/config"
-readOnly: true
+mountPathConfig: "/etc/config"
+readOnlyConfig: true
+
+mountPathVisits: "media/"
+storagePerNode: 128M

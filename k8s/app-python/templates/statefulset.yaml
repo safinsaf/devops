@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: {{ include "app-python.fullname" . }}
   labels:
@@ -11,6 +11,7 @@ spec:
   selector:
     matchLabels:
       {{- include "app-python.selectorLabels" . | nindent 6 }}
+  serviceName: {{ .Values.service.name }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -27,6 +28,7 @@ spec:
       serviceAccountName: {{ include "app-python.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      restartPolicy: Always
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
@@ -55,9 +57,10 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
             - name: config-volume
-              mountPath: {{ .Values.mountPath }}
-              readOnly: {{ .Values.readOnly }}
-
+              mountPath: {{ .Values.mountPathConfig }}
+              readOnly: {{ .Values.readOnlyConfig }}
+            - name: visits-volume-template
+              mountPath: {{ .Values.mountPathVisits }}
       volumes:
         - name: config-volume
           configMap:
@@ -74,3 +77,11 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+  volumeClaimTemplates:
+    - metadata:
+        name: visits-volume-template
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: {{.Values.storagePerNode}}
