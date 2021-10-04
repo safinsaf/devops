@@ -89,3 +89,10 @@ mountPathVisits: "media/"
 storagePerNode: 128M
 
 podManagementPolicy: "Parallel"
+
+initContainers:
+  name: download-some-file
+  volume:
+    name: test-download-volume
+    mountPath: "/test-file"
+    hostPath: "media/pages/"
