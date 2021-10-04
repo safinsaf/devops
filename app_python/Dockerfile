@@ -2,7 +2,7 @@
 FROM python:3.8-slim-buster
 LABEL maintainer="i.safin@innopolis.university"
 
-RUN apt update && apt upgrade && apt dist-upgrade && apt install --yes curl
+RUN apt update && apt upgrade && apt dist-upgrade && apt install --yes --no-install-recommends curl
 
 WORKDIR /python_app
 RUN adduser --disabled-password myuser && \
